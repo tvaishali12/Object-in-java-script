@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //-----------------------------Object properties--------------------------------
+    //1. Freeze-: To make certain feilds read only. //   Object.freeze(objectname)
+    //2.isFrozen: To check the object is frozen or not.//   Object.isFrozen(objectname)
+    // how we can check that the object is freezed or not ?  so we use isFrozen here to check.
+    // can be update the object existing  key or add a new key after frozen ?--No we cant
+    // update the existing key or delete a existing key and can not add any new key after frozen
+    //the object.
+
+    // example:
+    const obj = {
+      name: "vaishali",
+      age: 24,
+    };
+    let freeze = Object.freeze(obj);
+    let isfrozen = Object.isFrozen(obj);
+    console.log("isfrozen", isfrozen);
+    obj.name = "mukku";
+    delete obj.name;
+    obj.color = "black";
+    console.log(obj);
+    //------------------------------------------------------------------------
+    //3. Seal: in seal we can change but cant remove.    //Object.seal(objectname)
+    //4. isSealed is used to check object is seal or not.//Object.isSealed(objectname)
+    //After sealing the object we cant delete keys , cant add keys, but we can change the
+    // existing key.
+    //example:--
+    const object = {
+      city: "bhopal",
+    };
+    let seal = Object.seal(object);
+    let issealed = Object.isSealed(object);
+    console.log("issealed", issealed);
+    delete object.city; //cant delete
+    object.city = "sehore"; //can change
+    object.number = 123; //cant add
+    console.log("27:", object);
+
+    //-------------------------------------------------------------------
+    //5. If we want to see all the keys of object so we use - Object.keys(objectname)
+    console.log(Object.keys(object));
+    //6. If we want to see all the values of object so we use - Object.values(objectname)
+    console.log(Object.values(object));
+
+    //------------------------------------------------------------
+    //7. hasownproperty: is uesd to check whether the particular key is available in object or not
+    // syntax:-- objectname.hasownproperty(keyname inside string)
+    let myObject = {
+      pnum: 12345567890,
+    };
+    console.log("withoutvariable", myObject.hasOwnProperty("pnum")); //    without variable
+
+    let hasown = myObject.hasOwnProperty("pnum"); //      with variable
+    console.log("hasown", hasown);
+
+    console.log("pnum" in myObject); //using in
+
+    let check = "isActive" in myObject; //use in with variable
+    console.log(check); //false
+    //----------------------------------------------------------
+    //8.isEmpty:  To check whether the object or array is empty or not.
+    //   as we know the object gives the value in array so to find whether the object is empty or
+    //   not first --
+    //   get the keys in one variable .
+    //   make condition with that variable.
+    const newobj = {
+      name: "mukku",
+      age: 24,
+    };
+    let getkey = Object.keys(newobj);
+    if (getkey.length === 0) {
+      console.log("empty");
+    } else {
+      console.log("Not empty");
+    }
+    //9.how to find array is empty or not ?
+    let arr = [1, 4, 3];
+    if (arr.length === 0) {
+      console.log("empty");
+    } else {
+      console.log("not empty");
+    }
+
+    //How to destructuring the object ?
+    const structure = {
+      name: "vaishali",
+      age: 24,
+      city: "bhopal",
+    };
+
+    //----------------------1st way----------------------
+    //use template litral
+    const mssg = `Myname is ${structure.name} & I am ${structure.age} years old & I am from ${structure.city}`;
+    console.log("mssg:", mssg);
+
+    //-------2nd way(instead of writing structure .keyname every time we can write like--)
+    const { name, age, city } = structure;
+    const newmsg = `My name is ${name} & Iam ${age}years old & I am from ${city}`;
+    console.log("newmsg:", newmsg);
+
+    //-------------------------------------------------------------
+  </script>
+</html>

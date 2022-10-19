@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Q. How we can delete/eleminate any key from an object and create new object with rest of
+    // the keys  without affecting the  existing object ?
+    //1.rest  operator 2.spread operator 3.Object.assign
+    const profile = {
+      name: "Vaishali",
+      city: "bhopal",
+      state: "MP",
+      isActive: true,
+      isPresent: {
+        present: "yes",
+        notPresent: "no",
+      },
+    };
+    //1.--------------------------------------------using rest operator
+    //java script (...)rest operators are the collection of remaining element.it is always
+    //used in last.
+    const {
+      state,
+      //isPresent:{ present },
+      ...restdata
+    } = profile;
+    console.log("rest", restdata, profile);
+    //2.-------------------------------------------using spread operator
+    //the java script spread operator (...) allows us to quickly copy all or part of an
+    //existing array or object into another array or onject.
+    const newProfile = { ...profile };
+    delete newProfile.state;
+    // delete newProfile.isPresent.present;
+    console.log("spread", newProfile, profile);
+
+    //3.-------------------------------------Object.assign
+    const assign = Object.assign({}, profile);
+    delete assign.isPresent.present;
+    console.log("assign", assign, profile);
+
+    //4. last approach, Write a loop & store everything other than isActive ?
+    const blankObj = {};
+    for (let key in profile) {
+      if (key !== "isActive") {
+        blankObj[key] = profile[key];
+      }
+    }
+    console.log("last approach: ", blankObj, profile);
+    //----------------------------------------------------
+  </script>
+</html>

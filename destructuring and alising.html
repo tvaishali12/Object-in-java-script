@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let object = {
+      name: "vaishali",
+      city: "bhopal",
+      country: "india",
+      favSinger: {
+        maleSinger: "jubin",
+        femaleSinger: "palak",
+      },
+      age: 24,
+    };
+    console.log(object);
+    let newObject = {
+      name: "vishakha",
+      city: "sehore",
+      favSinger: {
+        maleSinger: "jubin",
+      },
+    };
+
+    //Oldway--------------------------for getting data in object,we write like:--
+    console.log("@vt-1", object.name);
+    console.log("@vt-2", object.city);
+    console.log("@vt-3", object.favSinger.maleSinger);
+    //Newway---------------------------- destructuring:-- const{keys}= objectname.
+    const {
+      name,
+      city,
+      country,
+      age = "NaN",
+      favSinger,
+      favSinger: { maleSinger },
+    } = object;
+    console.log("@vt-4", name, maleSinger, favSinger, age);
+
+    //----------------------------Alising:--
+    //alising is used to change the key name if we have same key in objects.
+    const {
+      name: uname,
+      city: ucity,
+      favSinger: aliseFavSinger,
+      favSinger: { maleSinger: aliseMaleSinger },
+    } = object; //here name ,city are same in both object.
+    console.log("@vt-5", uname, ucity, aliseMaleSinger, aliseFavSinger);
+
+    //-----------------------------------------------------------------------------------
+  </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Q-Why object are faster than array?
+
+    // objects are faster then array b/c ,in objects it becomes very easy to get the any value
+    //from object ,by using their key name but, in case of array, if we have to get any value so
+    // we have to rember the index of that value,which is very difficult when we have
+    // a huge amount of data.
+    // that is why objects are mostly used rather then array.
+
+    //example:--
+    //array--
+    let array = [1, 2, 3, 4, 5, 6, 7, 8];
+    console.log("array", array[5]);
+    //if we have to get the 5 from array so it is neccessary to rember the index which is
+    // very difficult in case of large amount of data
+
+    //object--
+    const myProfile = {
+      name: "Vaishali",
+      city: "bhopal",
+      state: "MP",
+      isActive: true,
+      isPresent: {
+        present: "yes",
+        notPresent: "no",
+      },
+    };
+    // it is very easy in objects to get any value just using their keys
+    console.log("object", myProfile.isActive);
+  </script>
+</html>
